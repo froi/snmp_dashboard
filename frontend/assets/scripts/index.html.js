@@ -1,5 +1,5 @@
 $(window).load(initPage);
-
+var dev = false;
 var settings = {
         alerts : { playSound: false },
         load: { type: "rest" }, // rest || ws (websocket)
@@ -8,9 +8,9 @@ var settings = {
         },
         rest : {
             refresh : { auto: true, rate: 7000 },
-            loadAlertPath : "http://snmp-server.froi.c9.io/alerts",
-            closeAlertPath : "http://snmp-server.froi.c9.io/alerts/id/close/",
-            updateAlertPath : "http://snmp-server.froi.c9.io/alerts/id/update/"
+            loadAlertPath : (dev ? "http://localhost:8080/" :"https://snmpdashboard-cyborgcorp.rhcloud.com/") + "alerts",
+            closeAlertPath : (dev ? "http://localhost:8080/" :"https://snmpdashboard-cyborgcorp.rhcloud.com/") + "alerts/id/close/",
+            updateAlertPath : (dev ? "http://localhost:8080/" :"https://snmpdashboard-cyborgcorp.rhcloud.com/") + "alerts/id/update/"
         }
     };
 
@@ -129,7 +129,8 @@ function loadAlertsRest(query) {
     
 
     
-    // Ajax call for data    
+    // Ajax call for data
+    console.log(settings.rest.loadAlertPath);
 	$.ajax({
 		url: settings.rest.loadAlertPath + params,
 		dataType: "json",
