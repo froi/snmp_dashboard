@@ -16,3 +16,7 @@ captured and parsed it stores it in a mongoDB instance for later viewing by the
 frontend.
 
 Demo site: https://snmpdashboard-cyborgcorp.rhcloud.com/
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/froi/snmp_dashboard/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
